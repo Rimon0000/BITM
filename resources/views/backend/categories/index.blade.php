@@ -1,6 +1,6 @@
 <x-backend.layouts.master>
 
-<x-slot name="pageTitle">
+    <x-slot name="pageTitle">
         Categories
     </x-slot>
 
@@ -9,7 +9,7 @@
 
             <x-backend.elements.breadcrumb>
                 <x-slot name="pageHeader">
-                Categories
+                    Categories
                 </x-slot>
                 <li class="breadcrumb-item"><a href="index.html"></a>Dashboard</li>
                 <li class="breadcrumb-item active">Categories</li>
@@ -19,7 +19,7 @@
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Categories <a href="{{route('categories.create')}}">Add New</a>
+                    Categories <a href="{{route('categories.create')}}">Add New Category</a>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
@@ -27,19 +27,19 @@
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
-                               
+
                             </tr>
                         </thead>
-                       
+
                         <tbody>
-                        @foreach ($categories as $category)
+                            @foreach ($categories as $category)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                               
+                                <td>{{ $category->title}}</td>
+                                <td>{{ $category->description}}</td>
+
                             </tr>
-                           @endforeach
-                          
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
