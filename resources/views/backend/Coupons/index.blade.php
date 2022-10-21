@@ -1,7 +1,7 @@
 <x-backend.layouts.master>
 
     <x-slot name="pageTitle">
-        Categories
+        Coupons
     </x-slot>
 
     <main>
@@ -9,36 +9,40 @@
 
             <x-backend.elements.breadcrumb>
                 <x-slot name="pageHeader">
-                    Categories
+                Coupons
                 </x-slot>
                 <li class="breadcrumb-item"><a href="index.html"></a>Dashboard</li>
-                <li class="breadcrumb-item active">Categories</li>
+                <li class="breadcrumb-item active">Coupons</li>
             </x-backend.elements.breadcrumb>
 
 
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Categories <a href="{{route('categories.create')}}">Add New Category</a>
+                    Categories <a href="{{route('coupons.create')}}">Add New Coupon</a>
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Title</th>
-                                <th>Description</th>
+                                <th>Code</th>
+                                <th>Type</th>
+                                <th>Value</th>
+                                <th>Parcent Off</th>
                                 <th>Action</th>
 
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($coupons as $coupon)
                             <tr>
-                                <td>{{ $category->title}}</td>
-                                <td>{{ $category->description}}</td>
+                                <td>{{ $coupon->code}}</td>
+                                <td>{{ $coupon->type}}</td>
+                                <td>{{ $coupon->value}}</td>
+                                <td>{{ $coupon->parcent_off}}</td>
                                 <td>
-                                    <a href="{{ route('categories.show',['category'=>$category->id]) }}">Show</a>
+                                    <a href="{{ route('coupons.show',['coupon'=>$coupon->id]) }}">Show</a>
                                 </td>
                             </tr>
                             @endforeach

@@ -24,7 +24,13 @@ class CategoryController extends Controller
             'description'=>$request->description
         ]);
     
-        return redirect()->route('categories.store');
+        return redirect()->route('categories.store')->withMessage("Category Added successfully");
+    }
+
+    public function show(Category $category){
+        // $category = Category::findOrFail($id);
+        // dd($category);
+        return view('backend.categories.show', ['category' => $category]);
     }
    
 }

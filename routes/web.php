@@ -34,6 +34,19 @@ Route::get('/categories', [CategoryController::class,'index'])->name('categories
 Route::get('/categories/create', [CategoryController::class,'create'])->name('categories.create');
 Route::post('/categories', [CategoryController::class,'store'])->name('categories.store');
 
+Route::get('/categories/{category}', [CategoryController::class,'show'])->name('categories.show');
+// GET	/comments/{comment}	show	comments.show
+
+//Coupon
+Route::get('/coupons', [CouponController::class,'index'])->name('coupons.index');
+Route::get('/coupons/create', [CouponController::class,'create'])->name('coupons.create');
+Route::post('/coupons', [CouponController::class,'store'])->name('coupons.store');
+Route::get('/coupons/{coupon}', [CouponController::class,'show'])->name('coupons.show');
+
+
+
+
+
 // Route::get('/categories/create', function () {
 //     return view('backend.categories.create');
 // })->name('categories.create');
